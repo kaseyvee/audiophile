@@ -1,0 +1,10 @@
+@function pixelsToRems($pixels) {
+  @return calc($pixels / 16) * 1rem;
+}
+
+@mixin flexCenter($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
