@@ -7,7 +7,9 @@ export default function Home() {
     .catch(console.error)
     
   return (
-    <main>
-    </main>
+    <>
+      <main>
+      </main>
+    </>
   )
 }
