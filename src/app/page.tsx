@@ -1,15 +1,43 @@
-import Image from 'next/image'
 import { client } from "../contentful";
+import Footer from "@/components/Footer";
 
-export default function Home() {
-  client.getEntries()
-    .then((response: any) => console.log(response.items))
-    .catch(console.error)
-    
+export async function getCategories() {
+  const res = await client.getEntries({
+    content_type: "categories",
+  });
+
+  const categories = res.items.map(
+    (category: { fields: any }) => category.fields
+  );
+
+  const filteredCategories = categories.map(
+    (category: {
+      name: string;
+      image: {
+        fields: {
+          file: {
+            url: string
+          }
+        }
+      }
+    }) => {
+      return {
+        name: category.name,
+        image: category.image.fields.file.url,
+      };
+    }
+  );
+
+  return filteredCategories;
+}
+export default async function Home() {
+  const categories = await getCategories();
+  // console.log(categories)
+
   return (
     <>
-      <main>
-      </main>
+      <main></main>
+      <Footer categories={categories} />
     </>
-  )
+  );
 }
