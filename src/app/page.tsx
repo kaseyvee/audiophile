@@ -8,8 +8,10 @@ export default async function Home() {
 
       </div>
       <div className="home__bottom">
+        <div className="wrapper">
 
-        <BottomBanner />
+          <BottomBanner />
+        </div>
       </div>
     </main>
   );
