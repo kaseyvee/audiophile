@@ -1,0 +1,72 @@
+footer {
+  background-color: $black;
+  color: $pureWhite;
+  padding: 3rem 2rem 2rem 2rem;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    background-color: $orange;
+    height: 4px;
+    width: 30%;
+    position: absolute;
+    top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    transform: translateX(-50%)
+
+  }
+
+  .top {
+    @include flexCenter(column);
+    gap: 3rem;
+    margin-bottom: 3rem;
+    
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      
+      a {
+        transition-duration: 200ms;
+  
+        &:hover, &:focus {
+          color: $orange;
+        }
+      }
+    }
+
+  }
+  
+  .bottom {
+    @include flexCenter(column);
+    gap: 3rem;
+
+    &__blurb {
+      opacity: 0.5;
+    }
+
+    &__copywrite {
+      opacity: 0.5;
+      font-weight: 700;
+    }
+
+    ul {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        svg {
+          display: block;
+          fill: $pureWhite;
+          transition-duration: 200ms;
+        }
+  
+        &:hover svg, &:focus svg {
+          fill: $orange;
+        }
+      }
+    }
+  }
+}
