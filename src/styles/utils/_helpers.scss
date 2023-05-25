@@ -9,6 +9,32 @@
   align-items: center;
 }
 
+@mixin font($weight, $size, $height, $spacing) {
+  @if $weight == auto {
+    font-weight: auto;
+  } @else {
+    font-weight: $weight;
+  }
+  
+  @if $size == auto {
+    font-size: auto;
+  } @else {
+    font-size: pixelsToRems($size);
+  }
+  
+  @if $height == auto {
+    line-height: auto;
+  } @else {
+    line-height: pixelsToRems($height);
+  }
+  
+  @if $spacing == auto {
+    letter-spacing: auto;
+  } @else {
+    letter-spacing: pixelsToRems($spacing);
+  }
+}
+
 .wrapper {
   width: min(100%, 1100px);
 }

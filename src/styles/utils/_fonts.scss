@@ -5,40 +5,27 @@ body {
 }
 
 p {
-  font-weight: 500;
-  font-size: pixelsToRems(15);
-  line-height: pixelsToRems(25);
+  @include font(500, 15, 25, 0);
 }
 
 .feature-header {
-  font-weight: 700;
-  font-size: pixelsToRems(36);
-  line-height: pixelsToRems(40);
-  letter-spacing: pixelsToRems(1.29);
+  @include font(700, 36, 40, 1.29);
 
   @media (min-width: 768px) {
-    font-size: pixelsToRems(56);
-    line-height: pixelsToRems(58);
-    letter-spacing: pixelsToRems(2);
+    @include font(700, 56, 58, 2);
   }
 }
 
 .category-page-header, .product-header, .blurb-header {
-  font-weight: 700;
-  font-size: pixelsToRems(28);
-  letter-spacing: pixelsToRems(1);
+  @include font(700, 28, auto, 1);
 
   @media (min-width: 768px) {
-    font-size: pixelsToRems(40);
-    letter-spacing: pixelsToRems(1.43);
-    line-height: pixelsToRems(44);
+    @include font(700, 40, 44, 1.43)
   }
 }
 
 .category-card-header {
-  font-weight: 700;
-  font-size: pixelsToRems(15);
-  letter-spacing: pixelsToRems(1.07);
+  @include font(700, 15, auto, 1.07);
 
   @media (min-width: 768px) {
     font-size: pixelsToRems(18);
@@ -47,9 +34,7 @@ p {
 }
 
 .product-card-header {
-  font-style: 700;
-  font-size: pixelsToRems(24);
-  letter-spacing: pixelsToRems(1.71);
+  @include font(700, 24, auto, 1.71);
 
   @media (min-width: 768px) {
     font-size: pixelsToRems(24);
@@ -57,16 +42,11 @@ p {
 }
 
 .home-product-header {
-  font-weight: 700;
-  font-size: pixelsToRems(28);
-  letter-spacing: (2);
+  @include font(700, 28, auto, 2);
 }
 
 .product-info {
-  font-weight: 700;
-  font-size: pixelsToRems(24);
-  letter-spacing: pixelsToRems(0.86);
-  line-height: pixelsToRems(36);
+  @include font(700, 24, 36, 0.86);
 
   @media (min-width: 768px) {
     font-size: pixelsToRems(32);
@@ -75,32 +55,21 @@ p {
 }
 
 .price {
-  font-weight: 700;
-  font-size: pixelsToRems(18);
-  letter-spacing: pixelsToRems(1.29);
+  @include font(700, 18, auto, 1.29);
 }
 
 .nav-item {
-  font-weight: 700;
-  font-size: pixelsToRems(13);
-  line-height: pixelsToRems(25);
-  letter-spacing: pixelsToRems(2);
+  @include font(700, 13, 25, 2);
 }
 
 .button {
-  font-weight: 700;
-  font-size: pixelsToRems(56);
-  letter-spacing: pixelsToRems(1);
+  @include font(700, 56, auto, 1);
 }
 
 .shop {
-  font-weight: 700;
-  font-size: pixelsToRems(13);
-  letter-spacing: pixelsToRems(1);
+  @include font(700, 13, auto, 1);
 }
 
 .new-product-label {
-  font-weight: 400;
-  font-size: pixelsToRems(14);
-  letter-spacing: pixelsToRems(10);
+  @include font(400, 14, auto, 10);
 }
