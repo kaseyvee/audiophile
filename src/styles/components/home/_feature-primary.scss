@@ -1,0 +1,71 @@
+.feature-primary {
+  @include flexCenter(column);
+  gap: 2.25rem;
+  border-radius: 8px;
+  background-color: $orange;
+  padding: 3.875rem 1.4375rem 4.4375rem 1.4375rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+
+  picture {
+    display: flex;
+    width: 43vw;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      background-image: url("/home/desktop/pattern-circles.svg");
+      width: 170%;
+      aspect-ratio: 1;
+      background-size: contain;
+      margin-inline: auto;
+      left: 0;
+      right: 0;
+      transform: translate(-20.5%, -32.5%);
+    }
+  }
+
+  .title-card {
+    h2 {
+      max-width: 7ch;
+      margin-top: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    picture {
+      width: 25vw;
+
+      &::before {
+        width: 135%;
+        transform: translate(-13%, -39%);
+      }
+    }
+  }
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 8.3rem 5.9rem;
+
+    picture {
+      position: absolute;
+      left: 8.5rem;
+      bottom: -0.75rem;
+      width: 35%;
+
+      &::before {
+        width: 245%;
+        transform: translate(-30%, -14%);
+      }
+    }
+  }
+}

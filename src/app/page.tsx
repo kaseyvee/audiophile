@@ -13,8 +13,8 @@ export default async function Home() {
       <Hero />
       <div className="home__bottom">
         <div className="wrapper">
-          <FeaturePrimary />
           <CategoryList categories={categories} />
+          <FeaturePrimary />
           <BottomBanner />
         </div>
       </div>
