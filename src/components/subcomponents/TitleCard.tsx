@@ -29,7 +29,7 @@ export default function TitleCard({
       {isNew && (
         <span
           className="new-product-label"
-          style={{ color: textColor === "black" ? "white" : "#D87D4A" }}
+          style={{ color: textColor === "black" ? "#D87D4A" : "white"}}
         >
           NEW PRODUCT
         </span>
