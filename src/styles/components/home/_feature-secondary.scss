@@ -2,6 +2,8 @@
   position: relative;
   
   picture {
+    display: flex;
+    
     img {
       border-radius: $borderRadius;
       object-fit: cover;
@@ -20,10 +22,22 @@
     margin-block: auto;
     top: 0;
     bottom: 0;
-    margin-left: 1.5rem;
+    margin-left: 7.3%;
 
     .button {
       width: fit-content;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &__words {
+      margin-left: 9%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    &__words {
+      margin-left: 8.6%;
     }
   }
 }
