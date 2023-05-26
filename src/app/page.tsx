@@ -1,5 +1,6 @@
 import BottomBanner from "@/components/BottomBanner";
-import CategoryList from "@/components/CategoryList";
+import CategoryList from "@/components/subcomponents/CategoryList";
+import TitleCard from "@/components/subcomponents/TitleCard";
 import { getCategories } from "@/fetching/getCategories";
 
 export default async function Home() {
@@ -14,6 +15,7 @@ export default async function Home() {
         <div className="wrapper">
           <CategoryList categories={categories} />
           <BottomBanner />
+          <TitleCard />
         </div>
       </div>
     </main>

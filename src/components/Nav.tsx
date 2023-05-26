@@ -5,8 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import CategoryProps from "@/props/CategoryProps";
-
-import CategoryList from "./CategoryList";
+import CategoryList from "./subcomponents/CategoryList";
 
 export default function Nav({ categories }: { categories: CategoryProps[] }) {
   const [navOpen, setNavOpen] = useState(false);
@@ -52,14 +51,15 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
               height={15}
             />
           </button>
-          <Image
-            priority
-            src="logo.svg"
-            alt=""
-            width={143}
-            height={25}
-            className="nav__logo"
-          />
+          <Link href="/" className="nav__logo">
+            <Image
+              priority
+              src="logo.svg"
+              alt=""
+              width={143}
+              height={25}
+            />
+          </Link>
           <ul>
             <li>
               <Link href="/" className="nav-item">

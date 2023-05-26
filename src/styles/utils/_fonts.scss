@@ -5,7 +5,7 @@ body {
 }
 
 p {
-  @include font(500, 15, 25, 0);
+  @include font(500, 15, 25, normal);
 }
 
 .feature-header {
@@ -17,7 +17,7 @@ p {
 }
 
 .category-page-header, .product-header, .blurb-header {
-  @include font(700, 28, auto, 1);
+  @include font(700, 28, normal, 1);
 
   @media (min-width: 768px) {
     @include font(700, 40, 44, 1.43)
@@ -25,7 +25,7 @@ p {
 }
 
 .category-card-header {
-  @include font(700, 15, auto, 1.07);
+  @include font(700, 15, normal, 1.07);
 
   @media (min-width: 768px) {
     font-size: pixelsToRems(18);
@@ -34,7 +34,7 @@ p {
 }
 
 .product-card-header {
-  @include font(700, 24, auto, 1.71);
+  @include font(700, 24, normal, 1.71);
 
   @media (min-width: 768px) {
     font-size: pixelsToRems(24);
@@ -42,7 +42,7 @@ p {
 }
 
 .home-product-header {
-  @include font(700, 28, auto, 2);
+  @include font(700, 28, normal, 2);
 }
 
 .product-info {
@@ -55,7 +55,7 @@ p {
 }
 
 .price {
-  @include font(700, 18, auto, 1.29);
+  @include font(700, 18, normal, 1.29);
 }
 
 .nav-item {
@@ -63,13 +63,13 @@ p {
 }
 
 .button {
-  @include font(700, 56, auto, 1);
+  @include font(700, 13, normal, 1);
 }
 
 .shop {
-  @include font(700, 13, auto, 1);
+  @include font(700, 13, normal, 1);
 }
 
 .new-product-label {
-  @include font(400, 14, auto, 10);
+  @include font(400, 14, normal, 10);
 }

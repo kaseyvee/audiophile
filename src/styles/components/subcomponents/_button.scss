@@ -1,0 +1,37 @@
+.button {
+  color: $pureWhite;
+  padding: 0.875rem 2rem;
+  transition-duration: 200ms;
+
+  &__orange {
+    background-color: $orange;
+    border: 1px solid $orange;
+    
+    &:hover, &:focus {
+      background-color: $peach;
+      border-color: $peach;
+    }
+  }
+  
+  &__black {
+    background-color: $pureBlack;
+    border: 1px solid $pureBlack;
+    
+    &:hover, &:focus {
+      background-color: #4C4C4C;
+      border-color: #4C4C4C;
+    }
+  }
+  
+  &__clear {
+    color: $pureBlack;
+    background: none;
+    border: 1px solid $pureBlack;
+
+    &:hover, &:focus {
+      background-color: $pureBlack;
+      border-color: $pureBlack;
+      color: $pureWhite;
+    }
+  }
+}

@@ -10,26 +10,17 @@
 }
 
 @mixin font($weight, $size, $height, $spacing) {
-  @if $weight == auto {
-    font-weight: auto;
-  } @else {
-    font-weight: $weight;
-  }
+  font-weight: $weight;
+  font-size: pixelsToRems($size);
   
-  @if $size == auto {
-    font-size: auto;
-  } @else {
-    font-size: pixelsToRems($size);
-  }
-  
-  @if $height == auto {
-    line-height: auto;
+  @if $height == normal {
+    line-height: normal;
   } @else {
     line-height: pixelsToRems($height);
   }
   
-  @if $spacing == auto {
-    letter-spacing: auto;
+  @if $spacing == normal {
+    letter-spacing: normal;
   } @else {
     letter-spacing: pixelsToRems($spacing);
   }
