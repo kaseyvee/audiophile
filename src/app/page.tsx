@@ -1,6 +1,7 @@
 import BottomBanner from "@/components/BottomBanner";
 import FeaturePrimary from "@/components/home/FeaturePrimary";
 import FeatureSecondary from "@/components/home/FeatureSecondary";
+import FeatureTertiary from "@/components/home/FeatureTertiary";
 import Hero from "@/components/home/Hero";
 import CategoryList from "@/components/subcomponents/CategoryList";
 
@@ -18,6 +19,7 @@ export default async function Home() {
           <div className="home__featured-products">
             <FeaturePrimary />
             <FeatureSecondary />
+            <FeatureTertiary />
           </div>
           <BottomBanner />
         </div>

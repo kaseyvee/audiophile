@@ -1,7 +1,7 @@
 import TitleCard from "../subcomponents/TitleCard";
 
 /* eslint-disable @next/next/no-img-element */
-function FeaturePrimary() {
+export default function FeaturePrimary() {
   const product = {
     name: "ZX9 SPEAKER",
     description:
@@ -27,5 +27,3 @@ function FeaturePrimary() {
     </div>
   );
 }
-
-export default FeaturePrimary;
