@@ -1,12 +1,11 @@
-import Link from "next/link";
 import Button from "../subcomponents/Button";
 
 function FeatureSecondary() {
   const product = {
-    name: "ZX9 SPEAKER",
+    name: "ZX7 SPEAKER",
     category: "speakers",
-    productId: "zx9s",
-    image: "image-speaker-zx9.png"
+    productId: "zx7s",
+    image: "image-speaker-zx7.jpg"
   }
 
   return (
@@ -16,12 +15,14 @@ function FeatureSecondary() {
         <source media="(min-width: 768px)" srcSet={`home/tablet/${product.image}`} />
         <img src={`home/mobile/${product.image}`} alt="" />
       </picture>
-      <h2>{product.name}</h2>
-      <Button
-        href={`/${product.category}/${product.productId}`}
-        buttonColor="black"
-        buttonText="SEE PRODUCT"
-      />
+      <div className="feature-secondary__words">
+        <h2 className="home-product-header">{product.name}</h2>
+        <Button
+          href={`/${product.category}/${product.productId}`}
+          buttonColor="clear"
+          buttonText="SEE PRODUCT"
+        />
+      </div>
     </div>
   );
 }

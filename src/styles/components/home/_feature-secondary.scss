@@ -1,0 +1,29 @@
+.feature-secondary {
+  position: relative;
+  
+  picture {
+    img {
+      border-radius: $borderRadius;
+      object-fit: cover;
+      width: 100%;
+      filter: brightness(0.9);
+    }
+  }
+
+  &__words {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    position: absolute;
+    
+    margin-block: auto;
+    top: 0;
+    bottom: 0;
+    margin-left: 1.5rem;
+
+    .button {
+      width: fit-content;
+    }
+  }
+}

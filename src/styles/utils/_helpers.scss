@@ -1,3 +1,5 @@
+$borderRadius: 8px;
+
 @function pixelsToRems($pixels) {
   @return calc($pixels / 16) * 1rem;
 }

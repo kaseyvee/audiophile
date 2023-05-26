@@ -13,6 +13,9 @@
   }
   
   &__featured-products {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     width: 100%;
   }
   
