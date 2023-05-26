@@ -1,6 +1,7 @@
 import "../styles/index.scss";
 import Footer from "@/components/Footer";
 import { getCategories } from "@/fetching/getCategories";
+import Nav from "@/components/Nav";
 
 export const metadata = {
   title: 'Your Audio Needs | Audiophile',
@@ -17,6 +18,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Nav categories={categories} />
         {children}
         <Footer categories={categories} />
       </body>

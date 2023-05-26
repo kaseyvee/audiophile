@@ -1,0 +1,22 @@
+nav {
+  @include flexCenter;
+  background-color: $pureBlack;
+  color: $pureWhite;
+  height: 91px;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ul {
+    display: none;
+  }
+
+  button {
+    background: none;
+    border: none;
+    padding: 1.5rem;
+  }
+}

@@ -1,4 +1,4 @@
-function BottomBanner() {
+export default function BottomBanner() {
   return (
     <div className='bottom-banner'>
       <picture>
@@ -21,5 +21,3 @@ function BottomBanner() {
     </div>
   );
 }
-
-export default BottomBanner;

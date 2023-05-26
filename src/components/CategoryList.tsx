@@ -3,7 +3,7 @@ import CategoryProps from "@/props/CategoryProps";
 import Image from "next/image";
 import Link from "next/link";
 
-function CategoryList({ categories }: { categories: CategoryProps[] }) {
+export default function CategoryList({ categories }: { categories: CategoryProps[] }) {
   const categoryList = categories.map((category: CategoryProps) => {
     return (
       <li key={category.name + "category list"}>
@@ -23,5 +23,3 @@ function CategoryList({ categories }: { categories: CategoryProps[] }) {
 
   return <ul className="category-list">{categoryList}</ul>;
 }
-
-export default CategoryList;
