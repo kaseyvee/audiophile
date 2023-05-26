@@ -13,6 +13,7 @@ interface TitleCardProps {
   isH1?: boolean;
   isFeature?: boolean;
   textColor: "black" | "white";
+  buttonColor: "black" | "orange";
 }
 
 export default function TitleCard({
@@ -21,6 +22,7 @@ export default function TitleCard({
   isH1,
   isFeature,
   textColor,
+  buttonColor
 }: TitleCardProps) {
   return (
     <div className="title-card" style={{ color: textColor }}>
@@ -42,9 +44,7 @@ export default function TitleCard({
       <p>{product.description}</p>
       <Link
         href={`/${product.category}/${product.productId}`}
-        className={`button button__${
-          textColor === "white" ? "black" : "orange"
-        }`}
+        className={`button button__${buttonColor}`}
       >
         SEE PRODUCT
       </Link>
