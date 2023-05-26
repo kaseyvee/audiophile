@@ -1,9 +1,10 @@
 .bottom-banner {
   @include flexCenter(column);
+  width: 100%;
   text-align: center;
+  align-self: center;
 
   picture {
-    
     img {
       border-radius: 8px;
       object-fit: cover;
@@ -11,7 +12,7 @@
     }
   }
 
-  h2, p {
+  &__words {
     max-width: 573px;
   }
   
@@ -25,5 +26,19 @@
 
   p {
     opacity: 0.5;
+  }
+
+  @media (min-width: 1100px) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    text-align: left;
+
+    &__words {
+      max-width: 445px;
+
+      h2 {
+        margin-block: 0 2rem;
+      }
+    }
   }
 }
