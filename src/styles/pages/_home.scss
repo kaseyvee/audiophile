@@ -5,6 +5,11 @@
     @include flexCenter;
     width: 100%;
     padding: 2.5rem 1.5rem 7.5rem 1.5rem;
+    
+    .wrapper {
+      @include flexCenter(column);
+      gap: 7.5rem;
+    }
   }
 
   @media (min-width: 768px) {
