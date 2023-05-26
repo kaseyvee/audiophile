@@ -1,14 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import CategoryProps from "@/props/CategoryProps";
+
 import Facebook from "./svgs/Facebook";
 import Twitter from "./svgs/Twitter";
 import Instagram from "./svgs/Instagram";
-
-interface CategoryProps {
-  name: string;
-  image: string;
-};
 
 export default function Footer({ categories }: { categories: CategoryProps[] }) {
   const footerItems = categories.map((footerItem: CategoryProps) => {

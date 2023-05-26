@@ -5,6 +5,8 @@
   align-self: center;
 
   picture {
+    display: flex;
+    
     img {
       border-radius: 8px;
       object-fit: cover;

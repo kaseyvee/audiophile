@@ -1,0 +1,37 @@
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4.25rem;
+
+  li {
+    @include flexCenter(column);
+    gap: 1rem;
+    background-color: $grey;
+    border-radius: 8px;
+    padding-block: 5.5rem 1.375rem;
+    position: relative;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+  }
+
+  &__image-container {
+    position: absolute;
+    top: -2.5rem;
+    width: 143px;
+
+    img {
+      object-fit: fill;
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 1100px) {
+    &__image-container {
+      width: 217px;
+    }
+  }
+}

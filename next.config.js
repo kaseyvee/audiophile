@@ -7,7 +7,15 @@ const nextConfig = {
     });
 
     return config;
-  }
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net'
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig
