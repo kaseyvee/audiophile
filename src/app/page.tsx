@@ -8,8 +8,8 @@ export default async function Home() {
 
   return (
     <main className="home page">
-      <div>
-
+      <div className="hero">
+        hello
       </div>
       <div className="home__bottom">
         <div className="wrapper">

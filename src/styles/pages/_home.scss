@@ -1,5 +1,10 @@
 .home {
   background-color: $white;
+
+  .hero {
+    height: 500px;
+    background-color: $pureBlack
+  }
   
   &__bottom {
     @include flexCenter;
