@@ -1,4 +1,4 @@
-nav {
+.nav {
   @include flexCenter;
   background-color: $pureBlack;
   color: $pureWhite;
@@ -18,5 +18,47 @@ nav {
     background: none;
     border: none;
     padding: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    &__logo {
+      position: absolute;
+      left: 6rem;
+    }
+
+    button {
+      padding: 2.4rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .wrapper {
+      box-sizing: content-box;
+      padding-inline: 2.5rem;
+    }
+
+    &__menu-button {
+      display: none;
+    }
+
+    &__cart-button {
+      padding: 2rem 0 !important;
+    }
+
+    &__logo {
+      position: static;
+      left: auto;
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      gap: 2.125rem;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+    }
   }
 }
