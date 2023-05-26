@@ -1,8 +1,13 @@
 .nav {
   @include flexCenter;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   background-color: $pureBlack;
   color: $pureWhite;
   height: 91px;
+  width: 100%;
 
   .wrapper {
     display: flex;
@@ -61,4 +66,36 @@
       right: 0;
     }
   }
+}
+
+.nav-menu-open {
+  position: fixed;
+  z-index: 50;
+  top: 91px;
+  width: 100%;
+  background-color: $white;
+  padding: 4.5rem 1.5rem 2rem 1.5rem;
+  height: min(75%, 750px);
+  border-radius: 0 0 8px 8px;
+  
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    height: fit-content;
+    padding: 6rem 2.5rem 4.2rem 2.5rem ;
+  }
+}
+
+.overlay {
+  position: fixed;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($pureBlack, 0.4);
 }
