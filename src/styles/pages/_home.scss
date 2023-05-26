@@ -15,7 +15,7 @@
   &__featured-products {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     width: 100%;
   }
   
@@ -28,6 +28,10 @@
   @media (min-width: 1100px) {
     &__bottom {
       padding-block: 12rem 12.5rem;
+    }
+
+    &__featured-products {
+      gap: 3rem;
     }
   }
 }
