@@ -14,7 +14,9 @@ export default async function Home() {
       <div className="home__bottom">
         <div className="wrapper">
           <CategoryList categories={categories} />
-          <FeaturePrimary />
+          <div className="home__featured-products">
+            <FeaturePrimary />
+          </div>
           <BottomBanner />
         </div>
       </div>

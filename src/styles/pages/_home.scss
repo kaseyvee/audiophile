@@ -11,7 +11,11 @@
       gap: 7.5rem;
     }
   }
-
+  
+  &__featured-products {
+    width: 100%;
+  }
+  
   @media (min-width: 768px) {
     &__bottom {
       padding: 8rem 2.5rem 6rem 2.5rem;

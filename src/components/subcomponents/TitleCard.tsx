@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "./Button";
 
 interface ProductProps {
   name: string;
@@ -42,12 +43,11 @@ export default function TitleCard({
         <h2 className="feature-header">{product.name}</h2>
       )}
       <p>{product.description}</p>
-      <Link
+      <Button
         href={`/${product.category}/${product.productId}`}
-        className={`button button__${buttonColor}`}
-      >
-        SEE PRODUCT
-      </Link>
+        buttonColor={buttonColor}
+        buttonText="SEE PRODUCT"
+      />
     </div>
   );
 }
