@@ -13,7 +13,7 @@ export default async function Home() {
   return (
     <main className="home page">
       <Hero />
-      <div className="home__bottom">
+      <div className="bottom">
         <div className="wrapper">
           <CategoryList categories={categories} />
           <div className="home__featured-products">

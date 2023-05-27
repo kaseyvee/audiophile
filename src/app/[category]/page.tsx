@@ -12,8 +12,12 @@ export default async function Category({ params }: { params: { category: string 
   return (
     <main className="category page">
       
-      <CategoryList categories={categories}/>
-      <BottomBanner />
+      <div className="bottom">
+        <div className="wrapper">
+          <CategoryList categories={categories}/>
+          <BottomBanner />
+        </div>
+      </div>
     </main>
   );
 }
