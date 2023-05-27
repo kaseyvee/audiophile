@@ -40,6 +40,7 @@ export default async function Category({
           isNew={product.new}
           textColor="black"
           buttonColor="orange"
+          // isProductPage={true}
         />
       </li>
     );

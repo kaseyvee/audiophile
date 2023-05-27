@@ -1,0 +1,25 @@
+.quantity-button {
+  background-color: $grey;
+
+  button {
+    background: none;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    
+    span {
+      opacity: 0.25;
+    }
+
+    &:hover, &:focus {
+      color: $orange;
+    }
+  }
+
+  p {
+    padding: 1rem;
+    display: inline;
+    color: $pureBlack;
+    opacity: 1 !important;
+  }
+}
