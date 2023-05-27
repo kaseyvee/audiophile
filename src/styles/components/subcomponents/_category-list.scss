@@ -27,6 +27,7 @@
         @include flexCenter;
         gap: 0.75rem;
         transition-duration: 200ms;
+        opacity: 0.5;
       }
 
       &:hover span, &:focus span {
