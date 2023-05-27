@@ -16,7 +16,7 @@ p {
   }
 }
 
-.category-page-header, .product-header, .blurb-header {
+.category-header, .product-header, .blurb-header {
   @include font(700, 28, normal, 1);
 
   @media (min-width: 768px) {
