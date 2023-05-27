@@ -40,7 +40,7 @@ export default function TitleCard({
           {product.name}
         </h1>
       ) : (
-        <h2 className="feature-header">{product.name}</h2>
+        <h2 className={isFeature ? "feature-header" : "product-header"}>{product.name}</h2>
       )}
       <p>{product.description}</p>
       <Button

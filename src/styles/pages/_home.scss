@@ -1,5 +1,9 @@
 .home {
   background-color: $white;
+
+  .bottom {
+    padding-block: 5rem 7.5rem !important;
+  }
   
   &__featured-products {
     display: flex;
@@ -8,7 +12,17 @@
     width: 100%;
   }
 
+  @media (min-width: 768px) {
+    .bottom {
+      padding-block: 8rem 6rem !important;
+    }
+  }
+
   @media (min-width: 1100px) {
+    .bottom {
+      padding-block: 12rem 12.5rem !important;
+    }
+
     &__featured-products {
       gap: 3rem;
     }
