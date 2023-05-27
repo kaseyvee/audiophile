@@ -4,6 +4,7 @@
   gap: 2rem;
 
   picture {
+    display: flex;
     img {
       border-radius: $borderRadius;
       object-fit: cover;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,6 +11,7 @@ import CategoryList from "./subcomponents/CategoryList";
 export default function Nav({ categories }: { categories: CategoryProps[] }) {
   const [navOpen, setNavOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const pathname = usePathname()
 
   useEffect(() => {
     addEventListener("resize", () => {
@@ -23,6 +25,7 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
     }
   }, [])
 
+
   const desktopCategoryList = categories.map((category) => {
     return (
       <li key={category.name + "nav item"}>
@@ -35,7 +38,7 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
 
   return (
     <>
-      <nav className="nav">
+      <nav className="nav" style={{ backgroundColor: pathname === "/" ? "transparent" : "black" }}>
         <div className="wrapper">
           <button
             aria-label="nav menu"
