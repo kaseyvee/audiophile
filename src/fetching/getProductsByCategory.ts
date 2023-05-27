@@ -1,9 +1,9 @@
 import { client } from "../contentful";
 
-export default async function getProductsByCategory(slug: string) {
+export default async function getProductsByCategory(currentCategory: string) {
   const category = await client.getEntries({
     content_type: "categories",
-    "fields.name": slug,
+    "fields.name": currentCategory,
     limit: 1
   })
 
@@ -29,26 +29,26 @@ export default async function getProductsByCategory(slug: string) {
     function filterImages(images: any) {
       // this function filters the nested image references in contentful so that only the image link is returned for each screen size as an array
       
-      const filteredImages = images.map((image: any) => {
+      let output: any = {};
+
+      images.forEach((image: any) => {
         const screens = ["mobile", "tablet", "desktop"];
-        let output: any = {};
 
         for (let screen of screens) {
           if (image.fields.title.includes(screen)) {
             output[screen] = image.fields.file.url;
           }
         }
-
-        return output;
       })
 
-      return filteredImages;
+      return output;
     }
 
     const fields = product.fields;
 
     return {
       ...fields,
+      category: currentCategory,
       accessories: filterAccessories(fields.accessories),
       imageMain: filterImages(fields.imageMain),
       imagePreview: filterImages(fields.imagePreview),

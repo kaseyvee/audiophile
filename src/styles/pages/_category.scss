@@ -1,11 +1,30 @@
 .category {
-  
   header {
     @include flexCenter;
     background-color: $pureBlack;
     color: $pureWhite;
     padding: 2rem;
     padding-top: 7.625rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5rem;
+    
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      picture {
+        img {
+          border-radius: $borderRadius;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+    }
   }
 
   @media (min-width: 768px) {
