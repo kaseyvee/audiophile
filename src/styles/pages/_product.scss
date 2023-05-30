@@ -1,0 +1,43 @@
+.product {
+  .top {
+    margin-top: 91px;
+    padding-top: 1rem;
+
+    .wrapper {
+      gap: 0;
+
+      .product {
+        &__item {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          picture {
+            img {
+              object-fit: cover;
+              width: 100%;
+              border-radius: $borderRadius;
+            }
+          }
+
+          .title-card {
+            align-items: flex-start;
+            text-align: left;
+
+            .new-product-label {
+              margin-bottom: 1rem;
+            }
+
+            h1 {
+              margin-top: 0.5rem;
+            }
+
+            p {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}

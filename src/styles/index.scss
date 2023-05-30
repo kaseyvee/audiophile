@@ -8,19 +8,20 @@
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-li {
-  list-style-type: none;
-}
 html {
   height: 100%;
 
   body {
     background-color: $black;
     height: 100%;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    li {
+      list-style-type: none;
+    }
   }
 }
