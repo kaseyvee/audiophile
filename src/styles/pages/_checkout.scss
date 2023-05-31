@@ -1,0 +1,15 @@
+.checkout {
+  margin-top: 91px;
+
+  .top {
+    padding-top: 1rem;
+  }
+
+  .cart {
+    position: static;
+    z-index: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+}

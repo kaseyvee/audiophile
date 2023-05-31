@@ -56,41 +56,53 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
         gap: 1rem;
   
-        .item {
+        .main {
           display: flex;
           align-items: center;
           gap: 1rem;
+          width: 100%;
   
-          .picture {  
+          &__picture {  
             width: 64px;
             aspect-ratio: 1;
             border-radius: $borderRadius;
-  
-            img {
-              object-fit: cover;
-              width: 100%;
-            }
           }
 
-          .info {
-            font-weight: bold;
-
+          &__info {
+            width: 100%;
+            
             span {
+              @include font(700, 14, 25, 0);
               opacity: 0.5;
             }
+            
+            div {
+              display: flex;
+              justify-content: space-between;
+              
+              p {
+                font-weight: bold;
+              }
+              
+              .quantity {
+                font-size: pixelsToRems(15);
+              }
+            }
           }
-    
         }
         
         .quantity-button {
           height: fit-content;
           @include flexCenter;
+          font-weight: bold;
+          width: 96px;
   
           p {
             padding: 0 0.5rem;
+            font-size: pixelsToRems(13);
+            letter-spacing: pixelsToRems(1);
           }
           
           button {
@@ -100,7 +112,7 @@
       }
     }
 
-    .empty-error {
+    &__error {
       margin-block: 1rem;
       font-weight: bold;
       color: $orange;
@@ -108,10 +120,24 @@
   
     &__bottom {
       display: flex;
-      justify-content: space-between;
-      
-      p {
-        opacity: 0.5;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          opacity: 0.5;
+        }
+      }
+
+      .grand-total {
+        margin-top: 1rem;
+
+        span {
+          color: $orange;
+        }
       }
     }
   

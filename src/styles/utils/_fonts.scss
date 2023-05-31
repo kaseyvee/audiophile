@@ -66,6 +66,10 @@ p {
   @include font(700, 13, normal, 1);
 }
 
+.back-button {
+  @include font(500, 15, 25, 0);
+}
+
 .shop {
   @include font(700, 13, normal, 1);
 }
