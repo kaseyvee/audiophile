@@ -8,6 +8,8 @@ export default function filterImages(images: any) {
     desktop: ""
   };
 
+  if (!images) return output;
+
   images.forEach((image: any) => {
     const screens = ["mobile", "tablet", "desktop"];
 
