@@ -1,0 +1,121 @@
+.wrapper {
+  position: relative;
+  
+  .cart {
+    display: flex;
+    flex-direction: column;
+    color: $pureBlack;
+  
+    position: absolute;
+    top: 91px;
+    right: 0;
+    z-index: 100;
+    background-color: $pureWhite;
+  
+    $margin: 1.5rem;
+    margin: $margin;
+    padding: 2rem 1.75rem;
+    width: calc(100% - $margin * 2);
+    max-width: 23.6rem;
+    border-radius: $borderRadius;
+  
+    &__top {
+      display: flex;
+      justify-content: space-between;
+  
+      p {
+        font-size: pixelsToRems(18);
+        font-weight: bold;
+        letter-spacing: pixelsToRems(1.29);
+      }
+  
+      button {
+        opacity: 0.5;
+        background: none;
+        border: none;
+        font-size: pixelsToRems(15);
+        line-height: pixelsToRems(25);
+        text-decoration: underline;
+        transition-duration: 200ms;
+  
+        &:hover, &:focus {
+          opacity: 1;
+          color: $orange;
+        }
+      }
+    }
+  
+    ul {
+      margin-block: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+  
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+  
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+  
+          .picture {
+            background-color: $black;
+  
+            width: 64px;
+            aspect-ratio: 1;
+            border-radius: $borderRadius;
+  
+            img {
+              object-fit: cover;
+              width: 100%;
+            }
+          }
+
+          .info {
+            font-weight: bold;
+
+            span {
+              opacity: 0.5;
+            }
+          }
+    
+        }
+        
+        .quantity-button {
+          height: fit-content;
+          @include flexCenter;
+  
+          p {
+            padding: 0 0.5rem;
+          }
+          
+          button {
+            padding: 0.5rem 1rem;
+          }
+        }
+      }
+    }
+  
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+      
+      p {
+        opacity: 0.5;
+      }
+    }
+  
+    .button {
+      margin-top: 1.5rem;
+    }
+  
+    @media (min-width: 768px) {
+      margin-right: 0;
+    }
+  }
+}
