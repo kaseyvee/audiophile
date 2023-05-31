@@ -48,7 +48,7 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
           >
             <Image
               priority
-              src="icon-hamburger.svg"
+              src="/icon-hamburger.svg"
               alt=""
               width={16}
               height={15}
@@ -57,7 +57,7 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
           <Link href="/" className="nav__logo">
             <Image
               priority
-              src="logo.svg"
+              src="/logo.svg"
               alt=""
               width={143}
               height={25}
@@ -77,7 +77,7 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
             onClick={() => setCartOpen(!cartOpen)}
             className="nav__cart-button"
           >
-            <Image priority src="icon-cart.svg" alt="" width={23} height={20} />
+            <Image priority src="/icon-cart.svg" alt="" width={23} height={20} />
           </button>
         </div>
       </nav>

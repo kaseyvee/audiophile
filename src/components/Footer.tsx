@@ -27,7 +27,7 @@ export default function Footer({ categories }: { categories: CategoryProps[] }) 
         <div className="top">
           <Image
             priority
-            src="logo.svg"
+            src="/logo.svg"
             alt=""
             width={143}
             height={25}

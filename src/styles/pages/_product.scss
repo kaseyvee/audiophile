@@ -1,0 +1,30 @@
+.product {
+  .top {
+    margin-top: 91px;
+    padding-top: 1rem;
+
+    .wrapper {
+      gap: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .top {
+      padding-top: 2rem;
+
+      .wrapper {
+
+      }
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .top {
+      padding-top: 5rem;
+
+      .wrapper {
+
+      }
+    }
+  }
+}
