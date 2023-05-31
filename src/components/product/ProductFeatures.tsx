@@ -12,10 +12,12 @@ export default function ProductFeatures({ features, accessories }: ProductFeatur
     return (
       <li key={accessory.name}>
         <span>{accessory.pieces}x</span>
-        <span>{accessory.name}</span>
+        <p>{accessory.name}</p>
       </li>
     )
   })
+
+  console.log(features)
 
   return (
     <div className="product-features">
