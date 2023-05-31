@@ -3,9 +3,10 @@ import { getProductById } from "@/fetching/getProductById";
 
 import BackButton from "@/components/subcomponents/BackButton";
 import ProductItem from "@/components/product/ProductCard";
+import ProductFeatures from "@/components/product/ProductFeatures";
+import ProductGallery from "@/components/product/ProductGallery";
 import CategoryList from "@/components/subcomponents/CategoryList";
 import BottomBanner from "@/components/BottomBanner";
-import ProductFeatures from "@/components/product/ProductFeatures";
 
 export default async function Product({
   params,
@@ -26,6 +27,9 @@ export default async function Product({
           <ProductFeatures
             features={product.features}
             accessories={product.accessories}
+          />
+          <ProductGallery
+            images={[product.imageGallery1, product.imageGallery2, product.imageGallery3]}
           />
         </div>
       </div>

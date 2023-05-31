@@ -17,8 +17,6 @@ export default function ProductFeatures({ features, accessories }: ProductFeatur
     )
   })
 
-  console.log(features)
-
   return (
     <div className="product-features">
       <div className="product-features__features">
