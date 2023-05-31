@@ -14,7 +14,7 @@ export default function CategoryList({ categories }: { categories: CategoryProps
           <h2 className="category-card-header">{category.name.toUpperCase()}</h2>
           <span className="shop">
             SHOP
-            <Image src="/icon-arrow-right.svg" alt="" width={5} height={10} />
+            <Image src="icon-arrow-right.svg" alt="" width={5} height={10} />
           </span>
         </Link>
       </li>

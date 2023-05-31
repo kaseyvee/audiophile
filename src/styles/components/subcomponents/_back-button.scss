@@ -5,4 +5,10 @@
   border: none;
   width: fit-content;
   align-self: flex-start;
+  cursor: pointer;
+  transition-duration: 200ms;
+
+  &:hover, &:focus {
+    color: $orange;
+  }
 }

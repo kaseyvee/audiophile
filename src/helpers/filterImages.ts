@@ -2,7 +2,11 @@ export default function filterImages(images: any) {
   // images is an array of nested objects
   // this function filters the nested image references in contentful so that only the image link is returned for each screen size as an array
   
-  let output: any = {};
+  let output: any = {
+    mobile: "",
+    tablet: "",
+    desktop: ""
+  };
 
   images.forEach((image: any) => {
     const screens = ["mobile", "tablet", "desktop"];
