@@ -37,6 +37,7 @@
         line-height: pixelsToRems(25);
         text-decoration: underline;
         transition-duration: 200ms;
+        cursor: pointer;
   
         &:hover, &:focus {
           opacity: 1;
@@ -63,9 +64,7 @@
           align-items: center;
           gap: 1rem;
   
-          .picture {
-            background-color: $black;
-  
+          .picture {  
             width: 64px;
             aspect-ratio: 1;
             border-radius: $borderRadius;
@@ -99,6 +98,12 @@
           }
         }
       }
+    }
+
+    .empty-error {
+      margin-block: 1rem;
+      font-weight: bold;
+      color: $orange;
     }
   
     &__bottom {

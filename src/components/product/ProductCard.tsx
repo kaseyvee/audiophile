@@ -3,6 +3,7 @@ import TitleCard from '../subcomponents/TitleCard';
 
 interface ProductCardProps {
   name: string;
+  codeName: string;
   description: string;
   category: string;
   productId: string;
