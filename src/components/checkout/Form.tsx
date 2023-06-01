@@ -36,7 +36,7 @@ function Form() {
         <h2 className="checkout-subheader">SHIPPING INFO</h2>
 
         <ul>
-          <li>
+          <li className="address">
             <label htmlFor="address" className="checkout-field-header">
               Address
             </label>

@@ -5,7 +5,8 @@
     padding-top: 1rem;
 
     .wrapper {
-      gap: 2rem
+      gap: 2rem;
+      display: grid;
     }
   }
 
@@ -15,5 +16,29 @@
     width: 100%;
     max-width: none;
     margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .top {
+      padding-block: 3rem 7.25rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .top {
+      padding-block: 5rem 8.75rem;
+      
+      .wrapper {
+        grid-template-columns: 2fr 1fr;
+        
+        .form {
+          grid-column: 1;
+        }
+
+        .cart {
+          align-self: start;
+        }
+      }
+    }
   }
 }
