@@ -77,3 +77,23 @@ p {
 .new-product-label {
   @include font(400, 14, normal, 10);
 }
+
+.checkout-header {
+  @include font(700, 28, normal, 1);
+
+  @media (min-width: 768px) {
+    @include font(700, 32, 36, 1.14);
+  }
+}
+
+.checkout-subheader {
+  @include font(700, 13, 25, 0.93);
+}
+
+.checkout-field-header {
+  @include font(700, 12, normal, -0.21);
+}
+
+.checkout-field-placeholder {
+  @include font(700, 14, normal, -0.25);
+}

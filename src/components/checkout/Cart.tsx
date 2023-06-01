@@ -12,7 +12,7 @@ interface CartItemProps {
   amount: number;
 }
 
-function Cart({ checkout }: { checkout?: boolean }) {
+export default function Cart({ checkout }: { checkout?: boolean }) {
   const router = useRouter();
 
   const cartItems = { ...localStorage };
@@ -24,9 +24,11 @@ function Cart({ checkout }: { checkout?: boolean }) {
     }
   }
 
-  const total = parsedCartItems.reduce((acc, item) => {
+  const subTotal = parsedCartItems.reduce((acc, item) => {
     return acc + item.price * item.amount;
   }, 0);
+  const vatTotal = Math.round(subTotal * 0.2);
+  const grandTotal = subTotal + 50;
 
   function handleChangeAmount(
     action: "increase" | "decrease",
@@ -58,6 +60,8 @@ function Cart({ checkout }: { checkout?: boolean }) {
     return router.refresh();
   }
 
+  function handlePay() {}
+
   const cartItemList = parsedCartItems.map((cartItem) => {
     return (
       <li key={cartItem.codeName + "cart"}>
@@ -71,6 +75,7 @@ function Cart({ checkout }: { checkout?: boolean }) {
             <span>$ {cartItem.price.toLocaleString()}</span>
           </div>
         </div>
+
         {!checkout && (
           <QuantityButton
             amount={cartItem.amount}
@@ -81,8 +86,6 @@ function Cart({ checkout }: { checkout?: boolean }) {
       </li>
     );
   });
-
-  function handlePay() {}
 
   return (
     <div className="cart">
@@ -105,7 +108,7 @@ function Cart({ checkout }: { checkout?: boolean }) {
       <div className="cart__bottom">
         <div>
           <p>TOTAL</p>
-          <span className="price">$ {total.toLocaleString()}</span>
+          <span className="price">$ {subTotal.toLocaleString()}</span>
         </div>
         {checkout && (
           <>
@@ -116,13 +119,13 @@ function Cart({ checkout }: { checkout?: boolean }) {
             <div>
               <p>VAT (INCLUDED)</p>
               <span className="price">
-                $ {Math.round(total * 0.2).toLocaleString()}
+                $ {vatTotal.toLocaleString()}
               </span>
             </div>
 
             <div className="grand-total">
               <p>GRAND TOTAL</p>
-              <span className="price">$ {(total + 50).toLocaleString()}</span>
+              <span className="price">$ {grandTotal.toLocaleString()}</span>
             </div>
           </>
         )}
@@ -144,5 +147,3 @@ function Cart({ checkout }: { checkout?: boolean }) {
     </div>
   );
 }
-
-export default Cart;
