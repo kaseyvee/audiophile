@@ -14,7 +14,7 @@ interface CartItemProps {
   amount: number;
 }
 
-export default function Cart({ checkout, onSubmit }: { checkout?: boolean, onSubmit?: (e: React.ChangeEvent<HTMLInputElement>) => void }) {
+export default function Cart({ checkout, onSubmit, cartRef }: { checkout?: boolean, onSubmit?: (e: React.ChangeEvent<HTMLInputElement>) => void, cartRef: any }) {
   const router = useRouter();
 
   const cartItems = { ...localStorage };
@@ -80,7 +80,7 @@ export default function Cart({ checkout, onSubmit }: { checkout?: boolean, onSub
   });
 
   return (
-    <div className="cart">
+    <div className="cart" ref={cartRef}>
       <div className="cart__top">
         {checkout ? (
           <p>SUMMARY</p>
