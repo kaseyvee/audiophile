@@ -13,28 +13,27 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
   const [navOpen, setNavOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const pathname = usePathname();
-  const cartRef = useRef<any>(null);
-  const menuRef = useRef<any>(null);
+  const navRef = useRef<any>(null);
   
   useEffect(() => {
     document.addEventListener("click", handleOutsideMenuClick, true);
     
-    addEventListener("resize", () => {
-      setNavOpen(false);
-    });
+    addEventListener("resize", handleCloseMenus);
     
     return () => {
-      removeEventListener("resize", () => {
-        setNavOpen(false);
-      })
+      removeEventListener("resize", handleCloseMenus)
     }
   }, [])
 
   function handleOutsideMenuClick(e: any) {
-    if (!cartRef.current?.contains(e.target) || !menuRef.current?.contains(e.target)) {
-      setCartOpen(false);
-      setNavOpen(false);
+    if (!navRef.current?.contains(e.target)) {
+      return handleCloseMenus();
     }
+  }
+
+  function handleCloseMenus() {
+    setCartOpen(false);
+    setNavOpen(false);
   }
 
 
@@ -50,7 +49,7 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
 
   return (
     <>
-      <nav className="nav" style={{ backgroundColor: pathname === "/" ? "transparent" : "black" }}>
+      <nav ref={navRef} className="nav" style={{ backgroundColor: pathname === "/" ? "transparent" : "black" }}>
         <div className="wrapper">
           <button
             aria-label="nav menu"
@@ -91,11 +90,11 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
           >
             <Image priority src="/icon-cart.svg" alt="" width={23} height={20} />
           </button>
-          {cartOpen && <Cart cartRef={cartRef} />}
+          {cartOpen && <Cart />}
         </div>
       </nav>
       {navOpen && (
-        <div ref={menuRef} className="nav-menu-open">
+        <div className="nav-menu-open">
           <CategoryList categories={categories} />
         </div>
       )}

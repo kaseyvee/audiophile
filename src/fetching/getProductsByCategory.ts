@@ -17,7 +17,7 @@ export default async function getProductsByCategory(currentCategory: string) {
   })
 
   const filteredProducts = res.items.map((product: any) => {
-    const filteredProduct = filterProduct(product, currentCategory);
+    const filteredProduct = filterProduct(product);
 
     return filteredProduct;
   })
