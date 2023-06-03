@@ -3,6 +3,7 @@
 import getSubTotal from "@/helpers/getSubTotal";
 import parseCart from "@/helpers/parseCart";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 import Button from "../subcomponents/Button";
 import QuantityButton from "../subcomponents/QuantityButton";
@@ -17,7 +18,13 @@ interface CartItemProps {
 export default function Cart({ checkout, onSubmit, cartRef }: { checkout?: boolean, onSubmit?: (e: React.ChangeEvent<HTMLInputElement>) => void, cartRef?: any }) {
   const router = useRouter();
 
-  const cartItems = { ...window.localStorage };
+  let cartItems = {};
+
+  if (typeof window !== 'undefined') {
+    // Perform localStorage action
+    cartItems = { ...localStorage }
+  }
+
   const parsedCartItems = parseCart(cartItems);
 
   const subTotal = getSubTotal(parsedCartItems);
