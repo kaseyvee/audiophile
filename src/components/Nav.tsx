@@ -1,29 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
 
 import CategoryProps from "@/props/CategoryProps";
 import CategoryList from "./subcomponents/CategoryList";
+import Cart from "./checkout/Cart";
 
 export default function Nav({ categories }: { categories: CategoryProps[] }) {
   const [navOpen, setNavOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const pathname = usePathname()
-
+  const pathname = usePathname();
+  const cartRef = useRef<any>(null);
+  const menuRef = useRef<any>(null);
+  
   useEffect(() => {
+    document.addEventListener("click", handleOutsideMenuClick, true);
+    
     addEventListener("resize", () => {
       setNavOpen(false);
     });
-
+    
     return () => {
       removeEventListener("resize", () => {
         setNavOpen(false);
       })
     }
   }, [])
+
+  function handleOutsideMenuClick(e: any) {
+    if (!cartRef.current?.contains(e.target) || !menuRef.current?.contains(e.target)) {
+      setCartOpen(false);
+      setNavOpen(false);
+    }
+  }
 
 
   const desktopCategoryList = categories.map((category) => {
@@ -63,7 +75,7 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
               height={25}
             />
           </Link>
-          <ul>
+          <ul className="nav__list">
             <li>
               <Link href="/" className="nav-item">
                 HOME
@@ -79,10 +91,11 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
           >
             <Image priority src="/icon-cart.svg" alt="" width={23} height={20} />
           </button>
+          {cartOpen && <Cart cartRef={cartRef} />}
         </div>
       </nav>
       {navOpen && (
-        <div className="nav-menu-open">
+        <div ref={menuRef} className="nav-menu-open">
           <CategoryList categories={categories} />
         </div>
       )}

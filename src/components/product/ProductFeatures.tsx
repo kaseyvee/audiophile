@@ -8,7 +8,7 @@ interface ProductFeaturesProps {
 
 export default function ProductFeatures({ features, accessories }: ProductFeaturesProps) {
 
-  const accessoriesList = accessories.map(accessory => {
+  const accessoryList = accessories.map(accessory => {
     return (
       <li key={accessory.name}>
         <span>{accessory.pieces}x</span>
@@ -28,7 +28,7 @@ export default function ProductFeatures({ features, accessories }: ProductFeatur
       <div className="product-features__accessories">
         <h2 className="product-info">IN THE BOX</h2>
         <ul>
-          {accessoriesList}
+          {accessoryList}
         </ul>
       </div>
     </div>

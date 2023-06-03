@@ -1,22 +1,21 @@
 import React from 'react';
 import TitleCard from '../subcomponents/TitleCard';
 
-interface ProductItemProps {
-  product: {
-    name: string;
-    description: string;
-    category: string;
-    productId: string;
-    imageMain: {
-      desktop: string;
-      tablet: string;
-      mobile: string;
-    }
-    new: boolean;
+interface ProductCardProps {
+  name: string;
+  codeName: string;
+  description: string;
+  category: string;
+  productId: string;
+  imageMain: {
+    desktop: string;
+    tablet: string;
+    mobile: string;
   }
+  new: boolean;
 }
 
-export default function ProductItem({ product }: ProductItemProps) {
+export default function ProductCard({ product }: { product: ProductCardProps }) {
   return (
     <div className="product-item">
       <picture>

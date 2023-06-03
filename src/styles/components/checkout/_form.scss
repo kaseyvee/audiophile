@@ -1,0 +1,182 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  background-color: $pureWhite;
+  border-radius: $borderRadius;
+
+  h2 {
+    color: $orange;
+    margin-bottom: 1rem;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      display: grid;
+      gap: 1.5rem;
+
+      li {
+        display: flex;
+        // reverse because css doesn't do previous sibling selectors (see end of file)
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+        
+        input {
+          padding: 1rem 1.5rem;
+          border-radius: $borderRadius;
+          border: 1px solid #CFCFCF;
+          @extend .checkout-field-placeholder;
+          color: $pureBlack;
+          cursor: pointer;
+
+          &:hover, &:focus {
+            border-color: $orange;
+            outline: $orange;
+          }
+    
+          &::placeholder {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+
+    fieldset {
+      border: none;
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 2rem;
+
+      legend {
+        margin-bottom: 1rem;
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid #CFCFCF;
+        padding: 1rem 1.5rem;
+        border-radius: $borderRadius;
+        cursor: pointer;
+
+        &:hover {
+          border-color: $orange;
+        }
+
+        label {
+          width: 100%;
+          cursor: pointer;
+        }
+        
+        input {
+          cursor: pointer;
+          position: relative;
+
+          &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            bottom: 50%;
+            margin: auto;
+            transform: translateX(-50%);
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: $pureWhite;
+            border: 1px solid #CFCFCF;
+          }
+
+          &:checked::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            bottom: 50%;
+            margin: auto;
+            transform: translateX(-50%);
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $orange;
+          }
+        }
+      }
+    }
+  }
+
+  &__cash-message {
+    @include flexCenter(column);
+    text-align: center;
+    gap: 1rem;
+    
+    p {
+      opacity: 0.5;
+    }
+  }
+
+  @media (min-width: 768px) {
+    gap: 2.5rem;
+
+    section {
+      ul {
+        gap: 1rem;
+      }
+    }
+    
+    ul, fieldset {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__cash-message {
+      flex-direction: row;
+      text-align: left;
+      gap: 2rem;
+    }
+
+    &__shipping-info {
+      .address {
+        grid-column: span 2;
+      }
+    }
+
+    &__payment-details {
+      display: grid;
+      
+      legend {
+        display: contents;
+        grid-row: 1;
+        grid-column: 1;
+        height: 100%;
+      }
+      
+      div {
+        grid-column: 2;
+      }
+    }
+  }
+
+  @media (min-width: 1100px) {
+    padding: 3.4rem 3rem 3rem 3rem;
+  }
+}
+
+.invalid {
+  input {
+    &:invalid {
+      border: 2px solid #CD2C2C;
+    }
+
+    &:invalid ~ label {
+      color: #CD2C2C;
+    }
+  }
+}

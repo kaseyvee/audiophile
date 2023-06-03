@@ -1,10 +1,6 @@
-interface ProductGalleryProps {
-  mobile: string;
-  tablet: string;
-  desktop: string;
-}
+import ImageProps from "@/props/ImageProps";
 
-export default function ProductGallery({ images }: { images: ProductGalleryProps[] }) {
+export default function ProductGallery({ images }: { images: ImageProps[] }) {
 
   const galleryList = images.map((galleryItem) => {
     const index = images.indexOf(galleryItem);

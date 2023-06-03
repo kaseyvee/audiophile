@@ -2,25 +2,39 @@ import Link from "next/link";
 
 interface ButtonProps {
   href?: string;
-  onClick?: () => void;
+  onClick?: any;
+  checkout?: boolean;
   buttonText: string;
   buttonColor: string;
 }
 
-function Button({ href, onClick, buttonText, buttonColor } : ButtonProps) {
+function Button({ href, onClick, checkout, buttonText, buttonColor }: ButtonProps) {
   return (
     <>
       {href ? (
-        <Link
-          href={href}
-          className={`button button__${buttonColor}`}
-        >
+        <Link href={href} className={`button button__${buttonColor}`}>
           {buttonText}
         </Link>
       ) : (
-        <button onClick={onClick} className={`button button__${buttonColor}`}>
-          {buttonText}
-        </button>
+        <>
+          {checkout ? (
+            <button
+              form="checkout-form"
+              type="submit"
+              onClick={onClick}
+              className={`button button__${buttonColor}`}
+            >
+              {buttonText}
+            </button>
+          ) : (
+            <button
+              onClick={onClick}
+              className={`button button__${buttonColor}`}
+            >
+              {buttonText}
+            </button>
+          )}
+        </>
       )}
     </>
   );

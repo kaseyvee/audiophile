@@ -2,11 +2,12 @@ import { getCategories } from "@/fetching/getCategories";
 import { getProductById } from "@/fetching/getProductById";
 
 import BackButton from "@/components/subcomponents/BackButton";
-import ProductItem from "@/components/product/ProductCard";
+import ProductCard from "@/components/product/ProductCard";
 import ProductFeatures from "@/components/product/ProductFeatures";
 import ProductGallery from "@/components/product/ProductGallery";
 import CategoryList from "@/components/subcomponents/CategoryList";
 import BottomBanner from "@/components/BottomBanner";
+import ProductRecs from "@/components/product/ProductRecs";
 
 export default async function Product({
   params,
@@ -14,14 +15,14 @@ export default async function Product({
   params: { productId: string; category: string };
 }) {
   const categories = await getCategories();
-  const product = await getProductById(params.productId, params.category);
+  const product = await getProductById(params.productId);
 
   return (
     <main className="product page">
       <div className="top">
         <div className="wrapper">
           <BackButton />
-          <ProductItem
+          <ProductCard
             product={product}
           />
           <ProductFeatures
@@ -36,6 +37,8 @@ export default async function Product({
 
       <div className="bottom">
         <div className="wrapper">
+          {/* @ts-expect-error Async Server Component */}
+          <ProductRecs />
           <CategoryList categories={categories} />
           <BottomBanner />
         </div>
