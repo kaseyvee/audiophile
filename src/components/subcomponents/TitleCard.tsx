@@ -10,12 +10,13 @@ import QuantityButton from "./QuantityButton";
 
 interface ProductProps {
   name: string;
-  codeName: string;
+  codeName?: string;
   description: string;
   category: string;
   productId: string;
   price?: number;
-  imageMain: ImageProps;
+  image?: string;
+  imageMain?: ImageProps;
 }
 
 interface TitleCardProps {
@@ -60,7 +61,7 @@ export default function TitleCard({
     const itemInfo = {
       codeName: product.codeName,
       price: product.price,
-      image: product.imageMain.desktop,
+      image: product.imageMain?.desktop,
       amount: itemAmount
     };
 
