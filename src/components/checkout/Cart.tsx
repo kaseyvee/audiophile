@@ -14,7 +14,7 @@ interface CartItemProps {
   amount: number;
 }
 
-export default function Cart({ checkout, onSubmit, cartRef }: { checkout?: boolean, onSubmit?: (e: React.ChangeEvent<HTMLInputElement>) => void, cartRef: any }) {
+export default function Cart({ checkout, onSubmit, cartRef }: { checkout?: boolean, onSubmit?: (e: React.ChangeEvent<HTMLInputElement>) => void, cartRef?: any }) {
   const router = useRouter();
 
   const cartItems = { ...localStorage };
