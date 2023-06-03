@@ -1,5 +1,6 @@
 .page {
   background-color: $white;
+  animation: fade 500ms ease-out forwards;
   
   .bottom, .top {
     @include flexCenter;
@@ -25,7 +26,21 @@
   }
 }
 
+@keyframes fade {
+  0% {
+    filter: blur(1rem);
+    opacity: 0;
+  }
+  20% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @import "home";
 @import "category";
 @import "product";
 @import "checkout";
+@import "error";

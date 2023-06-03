@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+
 import getSubTotal from "@/helpers/getSubTotal";
 import parseCart from "@/helpers/parseCart";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 import Button from "../subcomponents/Button";
 import QuantityButton from "../subcomponents/QuantityButton";
@@ -15,14 +16,22 @@ interface CartItemProps {
   amount: number;
 }
 
-export default function Cart({ checkout, onSubmit, cartRef }: { checkout?: boolean, onSubmit?: (e: React.ChangeEvent<HTMLInputElement>) => void, cartRef?: any }) {
+export default function Cart({
+  checkout,
+  onSubmit,
+  cartRef,
+}: {
+  checkout?: boolean;
+  onSubmit?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  cartRef?: any;
+}) {
   const router = useRouter();
 
   let cartItems = {};
 
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     // Perform localStorage action
-    cartItems = { ...localStorage }
+    cartItems = { ...localStorage };
   }
 
   const parsedCartItems = parseCart(cartItems);
@@ -87,7 +96,14 @@ export default function Cart({ checkout, onSubmit, cartRef }: { checkout?: boole
   });
 
   return (
-    <div className="cart" ref={cartRef}>
+    <motion.div
+      className="cart"
+      ref={cartRef}
+      key="modal"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="cart__top">
         {checkout ? (
           <p>SUMMARY</p>
@@ -117,9 +133,7 @@ export default function Cart({ checkout, onSubmit, cartRef }: { checkout?: boole
             </div>
             <div>
               <p>VAT (INCLUDED)</p>
-              <span className="price">
-                $ {vatTotal.toLocaleString()}
-              </span>
+              <span className="price">$ {vatTotal.toLocaleString()}</span>
             </div>
 
             <div className="grand-total">
@@ -130,20 +144,17 @@ export default function Cart({ checkout, onSubmit, cartRef }: { checkout?: boole
         )}
       </div>
 
-      {parsedCartItems.length > 0 && (checkout ? (
-        <Button
-          onClick={onSubmit}
-          checkout
-          buttonText="CONTINUE & PAY"
-          buttonColor="orange"
-        />
-      ) : (
-        <Button
-          href="/checkout"
-          buttonText="CHECKOUT"
-          buttonColor="orange"
-        />
-      ))}
-    </div>
+      {parsedCartItems.length > 0 &&
+        (checkout ? (
+          <Button
+            onClick={onSubmit}
+            checkout
+            buttonText="CONTINUE & PAY"
+            buttonColor="orange"
+          />
+        ) : (
+          <Button href="/checkout" buttonText="CHECKOUT" buttonColor="orange" />
+        ))}
+    </motion.div>
   );
 }
