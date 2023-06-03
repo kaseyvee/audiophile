@@ -45,7 +45,7 @@ function Confirmation() {
         width={64}
         height={64}
       />
-      <h2>THANK YOU FOR YOUR ORDER</h2>
+      <h2 className="product-info">THANK YOU FOR YOUR ORDER</h2>
       <p>You will receive and email confirmation shortly.</p>
       <div className="confirmation__summary">
         <div className="confirmation__summary-items">

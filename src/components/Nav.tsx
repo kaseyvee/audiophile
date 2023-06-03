@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 import CategoryProps from "@/props/CategoryProps";
 import CategoryList from "./subcomponents/CategoryList";
@@ -13,18 +14,18 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
   const [cartOpen, setCartOpen] = useState(false);
   const [navColor, setNavColor] = useState("transparent");
   const navRef = useRef<any>(null);
-  
+
   useEffect(() => {
     addEventListener("click", handleOutsideMenuClick, true);
     addEventListener("scroll", handleNavColorChange, true);
     addEventListener("resize", handleCloseMenus);
-    
+
     return () => {
-      removeEventListener("resize", handleCloseMenus)
+      removeEventListener("resize", handleCloseMenus);
       removeEventListener("click", handleOutsideMenuClick, true);
       removeEventListener("scroll", handleNavColorChange, true);
-    }
-  }, [])
+    };
+  }, []);
 
   function handleOutsideMenuClick(e: any) {
     if (!navRef.current?.contains(e.target)) {
@@ -42,9 +43,8 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
       return setNavColor("black");
     }
 
-    return setNavColor("transparent")
+    return setNavColor("transparent");
   }
-
 
   const desktopCategoryList = categories.map((category) => {
     return (
@@ -75,13 +75,7 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
             />
           </button>
           <Link href="/" className="nav__logo">
-            <Image
-              priority
-              src="/logo.svg"
-              alt=""
-              width={143}
-              height={25}
-            />
+            <Image priority src="/logo.svg" alt="" width={143} height={25} />
           </Link>
           <ul className="nav__list">
             <li>
@@ -97,17 +91,41 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
             onClick={() => setCartOpen(!cartOpen)}
             className="nav__cart-button"
           >
-            <Image priority src="/icon-cart.svg" alt="" width={23} height={20} />
+            <Image
+              priority
+              src="/icon-cart.svg"
+              alt=""
+              width={23}
+              height={20}
+            />
           </button>
-          {cartOpen && <Cart />}
+          <AnimatePresence>{cartOpen && <Cart />}</AnimatePresence>
         </div>
       </nav>
-      {navOpen && (
-        <div className="nav-menu-open">
-          <CategoryList categories={categories} />
-        </div>
-      )}
-      {(navOpen || cartOpen) && <div className="overlay"></div>}
+      <AnimatePresence>
+        {navOpen && (
+          <motion.div
+            className="nav-menu-open"
+            key="modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <CategoryList categories={categories} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {(navOpen || cartOpen) && (
+          <motion.div
+            className="overlay"
+            key="modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          ></motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

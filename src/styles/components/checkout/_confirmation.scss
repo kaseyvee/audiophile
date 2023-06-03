@@ -21,8 +21,8 @@
   max-width: 33.75rem;
 
   h2 {
-    @include font(700, 24, 28, 0.86);
     margin-block: 1.5rem 1rem;
+    max-width: 17.75rem;
   }
 
   p {
@@ -108,17 +108,24 @@
   }
 
   @media (min-width: 768px) {
+    padding: 3rem;
+
+    h2 {
+      margin-block: 2rem 1.5rem;
+    }
+
     &__summary {
       flex-direction: row;
+      margin-block: 2rem 2.875rem;
 
       &-items {
-        width: 60%;
+        width: 55%;
         border-radius: $borderRadius 0 0 $borderRadius;
         justify-content: center;
       }
       
       &-total {
-        width: 40%;
+        width: 45%;
         border-radius: 0 $borderRadius $borderRadius 0;
         justify-content: flex-end;
         padding: 2.5rem 2rem;
