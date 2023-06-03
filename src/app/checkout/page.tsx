@@ -42,13 +42,15 @@ export default function Checkout() {
   
   function handleFormSubmit(e: React.ChangeEvent<HTMLInputElement>): void {
     e.preventDefault();
+    console.log("attempted started")
 
-    if (!nameField.current || !emailField.current || !phoneField.current || !addressField.current || !zipCodeField.current || !countryField.current || (!eMoneySelectField.current && !cashSelectField.current) || (eMoneyNumberField.current && eMoneyNumberField.current && eMoneyPinField.current)) {
+    if (!nameField.current?.value || !emailField.current?.value || !phoneField.current?.value || !addressField.current?.value || !zipCodeField.current?.value || !countryField.current?.value || (!eMoneySelectField.current?.value && !cashSelectField.current?.value) || (eMoneyNumberField.current?.value && (!eMoneyNumberField.current?.value || !eMoneyPinField.current?.value))) {
       console.log("something wrong lol")
       return setShowInvalidForm(true);
     }
 
     setShowInvalidForm(false);
+    window.scrollTo(0,0);
     return setShowConfirmation(true);
   }
 
@@ -56,10 +58,10 @@ export default function Checkout() {
   return (
     <main className="checkout page">
       {showConfirmation && (
-        <>
+        <div className="confirmation-modal">
           <Confirmation />
           <div className="overlay"></div>
-        </>
+        </div>
       )}
       <div className="top">
         <div className="wrapper">

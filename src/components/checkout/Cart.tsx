@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import getSubTotal from "@/helpers/getSubTotal";
+import parseCart from "@/helpers/parseCart";
 import { useRouter } from "next/navigation";
 
 import Button from "../subcomponents/Button";
@@ -16,17 +18,9 @@ export default function Cart({ checkout, onSubmit }: { checkout?: boolean, onSub
   const router = useRouter();
 
   const cartItems = { ...localStorage };
-  let parsedCartItems = [];
+  const parsedCartItems = parseCart(cartItems);
 
-  for (let cartItem in cartItems) {
-    if (cartItem.includes("audiophile")) {
-      parsedCartItems.push(JSON.parse(cartItems[cartItem]));
-    }
-  }
-
-  const subTotal = parsedCartItems.reduce((acc, item) => {
-    return acc + item.price * item.amount;
-  }, 0);
+  const subTotal = getSubTotal(parsedCartItems);
   const vatTotal = Math.round(subTotal * 0.2);
   const grandTotal = subTotal + 50;
 
@@ -129,7 +123,7 @@ export default function Cart({ checkout, onSubmit }: { checkout?: boolean, onSub
         )}
       </div>
 
-      {checkout ? (
+      {parsedCartItems.length > 0 && (checkout ? (
         <Button
           onClick={onSubmit}
           checkout
@@ -142,7 +136,7 @@ export default function Cart({ checkout, onSubmit }: { checkout?: boolean, onSub
           buttonText="CHECKOUT"
           buttonColor="orange"
         />
-      )}
+      ))}
     </div>
   );
 }
