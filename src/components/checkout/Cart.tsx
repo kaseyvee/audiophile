@@ -12,7 +12,7 @@ interface CartItemProps {
   amount: number;
 }
 
-export default function Cart({ checkout }: { checkout?: boolean }) {
+export default function Cart({ checkout, onSubmit }: { checkout?: boolean, onSubmit?: (e: React.ChangeEvent<HTMLInputElement>) => void }) {
   const router = useRouter();
 
   const cartItems = { ...localStorage };
@@ -59,8 +59,6 @@ export default function Cart({ checkout }: { checkout?: boolean }) {
     localStorage.clear();
     return router.refresh();
   }
-
-  function handlePay() {}
 
   const cartItemList = parsedCartItems.map((cartItem) => {
     return (
@@ -133,7 +131,8 @@ export default function Cart({ checkout }: { checkout?: boolean }) {
 
       {checkout ? (
         <Button
-          onClick={handlePay}
+          onClick={onSubmit}
+          checkout
           buttonText="CONTINUE & PAY"
           buttonColor="orange"
         />

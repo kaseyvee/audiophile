@@ -20,7 +20,9 @@
       gap: 1.5rem;
 
       li {
-        display: grid;
+        display: flex;
+        // reverse because css doesn't do previous sibling selectors (see end of file)
+        flex-direction: column-reverse;
         gap: 0.5rem;
         
         input {
@@ -29,6 +31,12 @@
           border: 1px solid #CFCFCF;
           @extend .checkout-field-placeholder;
           color: $pureBlack;
+          cursor: pointer;
+
+          &:hover, &:focus {
+            border-color: $orange;
+            outline: $orange;
+          }
     
           &::placeholder {
             opacity: 0.5;
@@ -52,16 +60,54 @@
         flex-direction: row;
         align-items: center;
         gap: 1rem;
-        padding: 1rem 1.5rem;
         border: 1px solid #CFCFCF;
+        padding: 1rem 1.5rem;
         border-radius: $borderRadius;
+        cursor: pointer;
+
+        &:hover {
+          border-color: $orange;
+        }
 
         label {
           width: 100%;
+          cursor: pointer;
         }
+        
+        input {
+          cursor: pointer;
+          position: relative;
 
-        input:checked {
-          border-color: $orange;
+          &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            bottom: 50%;
+            margin: auto;
+            transform: translateX(-50%);
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: $pureWhite;
+            border: 1px solid #CFCFCF;
+          }
+
+          &:checked::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            bottom: 50%;
+            margin: auto;
+            transform: translateX(-50%);
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $orange;
+          }
         }
       }
     }
@@ -71,7 +117,6 @@
     @include flexCenter(column);
     text-align: center;
     gap: 1rem;
-    margin-top: 2rem;
     
     p {
       opacity: 0.5;
@@ -119,7 +164,19 @@
     }
   }
 
-  // @media (min-width: 1100px) {
-  //   flex-direction: row;
-  // }
+  @media (min-width: 1100px) {
+    padding: 3.4rem 3rem 3rem 3rem;
+  }
+}
+
+.invalid {
+  input {
+    &:invalid {
+      border: 2px solid #CD2C2C;
+    }
+
+    &:invalid ~ label {
+      color: #CD2C2C;
+    }
+  }
 }
