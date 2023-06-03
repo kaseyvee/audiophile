@@ -30,6 +30,8 @@
   }
 
   &__summary {
+    display: flex;
+    flex-direction: column;
     margin-block: 1.5rem;
     border-radius: $borderRadius;
 
@@ -39,6 +41,7 @@
       gap: 0.75rem;
       background-color: $grey;
       padding: 1.5rem;
+      border-radius: $borderRadius $borderRadius 0 0;
         
       .main {
         display: flex;
@@ -81,6 +84,11 @@
         text-align: center;
         padding-top: 0.75rem;
         border-top: 1px solid rgba($pureBlack, 0.08);
+        cursor: pointer;
+
+        &:hover, &:focus {
+          text-decoration: underline;
+        }
       }
     }
     
@@ -102,6 +110,19 @@
   @media (min-width: 768px) {
     &__summary {
       flex-direction: row;
+
+      &-items {
+        width: 60%;
+        border-radius: $borderRadius 0 0 $borderRadius;
+        justify-content: center;
+      }
+      
+      &-total {
+        width: 40%;
+        border-radius: 0 $borderRadius $borderRadius 0;
+        justify-content: flex-end;
+        padding: 2.5rem 2rem;
+      }
     }
   }
 }
