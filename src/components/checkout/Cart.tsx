@@ -19,6 +19,7 @@ export default function Cart({ checkout, onSubmit, cartRef }: { checkout?: boole
 
   const cartItems = { ...localStorage };
   const parsedCartItems = parseCart(cartItems);
+  console.log(parsedCartItems)
 
   const subTotal = getSubTotal(parsedCartItems);
   const vatTotal = Math.round(subTotal * 0.2);
