@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,16 +11,18 @@ import Cart from "./checkout/Cart";
 export default function Nav({ categories }: { categories: CategoryProps[] }) {
   const [navOpen, setNavOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const pathname = usePathname();
+  const [navColor, setNavColor] = useState("transparent");
   const navRef = useRef<any>(null);
   
   useEffect(() => {
-    document.addEventListener("click", handleOutsideMenuClick, true);
-    
+    addEventListener("click", handleOutsideMenuClick, true);
+    addEventListener("scroll", handleNavColorChange, true);
     addEventListener("resize", handleCloseMenus);
     
     return () => {
       removeEventListener("resize", handleCloseMenus)
+      removeEventListener("click", handleOutsideMenuClick, true);
+      removeEventListener("scroll", handleNavColorChange, true);
     }
   }, [])
 
@@ -34,6 +35,14 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
   function handleCloseMenus() {
     setCartOpen(false);
     setNavOpen(false);
+  }
+
+  function handleNavColorChange() {
+    if (window.pageYOffset > 40) {
+      return setNavColor("black");
+    }
+
+    return setNavColor("transparent")
   }
 
 
@@ -49,7 +58,7 @@ export default function Nav({ categories }: { categories: CategoryProps[] }) {
 
   return (
     <>
-      <nav ref={navRef} className="nav" style={{ backgroundColor: pathname === "/" ? "transparent" : "black" }}>
+      <nav ref={navRef} className="nav" style={{ backgroundColor: navColor }}>
         <div className="wrapper">
           <button
             aria-label="nav menu"
