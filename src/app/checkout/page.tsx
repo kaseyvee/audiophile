@@ -42,10 +42,8 @@ export default function Checkout() {
   
   function handleFormSubmit(e: React.ChangeEvent<HTMLInputElement>): void {
     e.preventDefault();
-    console.log("attempted started")
 
     if (!nameField.current?.value || !emailField.current?.value || !phoneField.current?.value || !addressField.current?.value || !zipCodeField.current?.value || !countryField.current?.value || (!eMoneySelectField.current?.value && !cashSelectField.current?.value) || (eMoneyNumberField.current?.value && (!eMoneyNumberField.current?.value || !eMoneyPinField.current?.value))) {
-      console.log("something wrong lol")
       return setShowInvalidForm(true);
     }
 

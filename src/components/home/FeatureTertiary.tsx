@@ -5,7 +5,7 @@ export default function FeatureTertiary() {
   const product = {
     name: "YX1 EARPHONES",
     category: "earphones",
-    productId: "yx1e",
+    productId: "yx1we",
     image: "image-earphones-yx1.jpg"
   }
 

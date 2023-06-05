@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 interface FormProps {
@@ -37,7 +38,13 @@ interface FormProps {
   };
 }
 
-function Form({ formData, invalid }: { formData: FormProps, invalid: boolean }) {
+function Form({
+  formData,
+  invalid,
+}: {
+  formData: FormProps;
+  invalid: boolean;
+}) {
   const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
 
   return (
@@ -199,7 +206,7 @@ function Form({ formData, invalid }: { formData: FormProps, invalid: boolean }) 
         </fieldset>
 
         {paymentMethod === "e-money" && (
-          <ul>
+          <motion.ul initial={{ scaleY: 0 }} animate={{ scaleY: 1 }}>
             <li>
               <input
                 name="e-money-number"
@@ -227,11 +234,15 @@ function Form({ formData, invalid }: { formData: FormProps, invalid: boolean }) 
                 e-Money PIN
               </label>
             </li>
-          </ul>
+          </motion.ul>
         )}
 
         {paymentMethod === "cash" && (
-          <div className="form__cash-message">
+          <motion.div
+            className="form__cash-message"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+          >
             <Image
               src="/checkout/icon-cash-on-delivery.svg"
               alt=""
@@ -243,7 +254,7 @@ function Form({ formData, invalid }: { formData: FormProps, invalid: boolean }) 
               delivery courier arrives at your residence. Just make sure your
               address is correct so that your order will not be cancelled.
             </p>
-          </div>
+          </motion.div>
         )}
       </section>
     </form>

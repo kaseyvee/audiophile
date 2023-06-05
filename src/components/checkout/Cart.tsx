@@ -30,7 +30,6 @@ export default function Cart({
   let cartItems = {};
 
   if (typeof window !== "undefined") {
-    // Perform localStorage action
     cartItems = { ...localStorage };
   }
 
@@ -71,6 +70,7 @@ export default function Cart({
   }
 
   const cartItemList = parsedCartItems.map((cartItem) => {
+    
     return (
       <li key={cartItem.codeName + "cart"}>
         <div className="main">
