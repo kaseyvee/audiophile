@@ -10,6 +10,10 @@
     }
   }
 
+  .title-card {
+    margin: 2rem;
+  }
+
   .wrapper {
     @include flexCenter;
     position: absolute;
@@ -23,6 +27,11 @@
   }
   
   @media (min-width: 1100px) {
+
+    .title-card {
+      margin: 0;
+    }
+    
     .wrapper {
       justify-content: flex-start;
       box-sizing: content-box;
