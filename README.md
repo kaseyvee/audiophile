@@ -23,7 +23,7 @@ Users should be able to:
 
 #### Desktop View
 ![Homepage hero desktop view](https://i.imgur.com/leCv7Cr.png)
-![Cart open desktop view](https://i.imgur.com/EpTegDF.png)
+![Cart open desktop view](https://i.imgur.com/Vegv2Ps.png)
 
 #### Mobile View
 <p float="left">
