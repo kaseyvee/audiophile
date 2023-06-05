@@ -39,6 +39,8 @@ export default function TitleCard({
   buttonColor,
 }: TitleCardProps) {
   const [itemAmount, setItemAmount] = useState(0);
+  const [cartUpdated, setCartUpdated] = useState(false);
+  
   const localStorageKey = product.codeName + "audiophile";
 
   useEffect(() => {
@@ -69,7 +71,15 @@ export default function TitleCard({
       return localStorage.removeItem(localStorageKey);
     }
 
+    setCartUpdated(true);
+
+    const cartUpdatedTimeout = setTimeout(() => {
+      setCartUpdated(false);
+    }, 1500)
+
     localStorage.setItem(localStorageKey, JSON.stringify(itemInfo));
+
+    return () => clearTimeout(cartUpdatedTimeout);
   }
 
   return (
@@ -106,8 +116,8 @@ export default function TitleCard({
         {isProductPage ? (
           <Button
             onClick={handleAddToCard}
-            buttonColor="orange"
-            buttonText="ADD TO CART"
+            buttonColor={cartUpdated ? "black" : "orange"}
+            buttonText={cartUpdated ? "CART UPDATED" : "ADD TO CART"}
           />
         ) : (
           <Button
