@@ -27,9 +27,9 @@ Users should be able to:
 
 #### Mobile View
 <p float="left">
-  <img src="https://i.imgur.com/DODZYJ8.png" alt="Homepage hero mobile view" width="305">
-  <img src="https://i.imgur.com/BrAvZ2m.png" alt="Mobile view with cart expanded" width="305">
-  <img src="https://i.imgur.com/JWmi5Zc.png" alt="Product item page view" width="305">
+  <img src="https://i.imgur.com/DODZYJ8.png" alt="Homepage hero mobile view" width="250">
+  <img src="https://i.imgur.com/BrAvZ2m.png" alt="Mobile view with cart expanded" width="250">
+  <img src="https://i.imgur.com/JWmi5Zc.png" alt="Product item page view" width="250">
 </p>
 
 ### Built with
